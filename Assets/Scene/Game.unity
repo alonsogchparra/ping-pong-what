@@ -867,7 +867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7022902, y: 0.84129363}
   m_AnchorMax: {x: 0.77083945, y: 1}
-  m_AnchoredPosition: {x: 0.3, y: -0.050001144}
+  m_AnchoredPosition: {x: 0.30000305, y: -0.05000305}
   m_SizeDelta: {x: 0.6000061, y: -0.1000061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865681540
@@ -920,8 +920,9 @@ GameObject:
   - component: {fileID: 2122099173}
   - component: {fileID: 2122099172}
   - component: {fileID: 2122099171}
+  - component: {fileID: 2122099175}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Scoreboard_Contoller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1004,3 +1005,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2122099175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122099170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624e25afbcea64df29eb6d064b990790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOneScoreText: {fileID: 296162527}
+  PlayerTwoScoreText: {fileID: 1865681540}
+  playerOneScore: 0
+  playerTwoScore: 0
