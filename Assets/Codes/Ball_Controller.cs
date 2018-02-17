@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ball_Controller : MonoBehaviour {
 
+	public AudioSource[] audioClips = null;
+
 	private Rigidbody rb;
 
 	// Use this for initialization
@@ -117,6 +119,9 @@ public class Ball_Controller : MonoBehaviour {
 			
 			rb.velocity = new Vector3(13f, 0f, 0f);
 
+			if (!audioClips[0].isPlaying)
+				audioClips[0].Play();
+
 			if(transform.position.y - hit.gameObject.transform.position.y < -1)
 				rb.velocity = new Vector3(8f, -8f, 0f);
 
@@ -129,6 +134,9 @@ public class Ball_Controller : MonoBehaviour {
 		if (hit.gameObject.name == "Right_Monkey") {
 
 			rb.velocity = new Vector3(-13f, 0f, 0f);
+
+			if (!audioClips[1].isPlaying)
+				audioClips[1].Play();
 
 			if(transform.position.y - hit.gameObject.transform.position.y < -1)
 				rb.velocity = new Vector3(-8f, -8f, 0f);
