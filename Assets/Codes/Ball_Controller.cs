@@ -22,6 +22,8 @@ public class Ball_Controller : MonoBehaviour {
 			transform.position = Vector3.zero;
 			rb.velocity = Vector3.zero;
 
+			Scoreboard_Controller.instance.GivePlayerTwoPoint();
+
 			StartCoroutine(Pause());
 
 		}
@@ -30,6 +32,8 @@ public class Ball_Controller : MonoBehaviour {
 
 			transform.position = Vector3.zero;
 			rb.velocity = Vector3.zero;
+
+			Scoreboard_Controller.instance.GivePlayerOnePoint();
 
 			StartCoroutine(Pause());
 
