@@ -119,6 +119,9 @@ public class Ball_Controller : MonoBehaviour {
 			
 			rb.velocity = new Vector3(13f, 0f, 0f);
 
+			Player_Input_Controller.instance.hitLeft = true;
+			Player_Input_Controller.instance.hitRight = false;
+
 			if (!audioClips[0].isPlaying)
 				audioClips[0].Play();
 
@@ -134,6 +137,9 @@ public class Ball_Controller : MonoBehaviour {
 		if (hit.gameObject.name == "Right_Monkey") {
 
 			rb.velocity = new Vector3(-13f, 0f, 0f);
+
+			Player_Input_Controller.instance.hitLeft = false;
+			Player_Input_Controller.instance.hitRight = true;
 
 			if (!audioClips[1].isPlaying)
 				audioClips[1].Play();
