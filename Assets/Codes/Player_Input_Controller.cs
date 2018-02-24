@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class Player_Input_Controller : MonoBehaviour {
 
-	public GameObject monkeyLeft, monkeyRight;
+	public GameObject monkeyLeft, monkeyRight, spriteLeft, spriteRight;
+	public Sprite mkOne, mkOne_Hit, mkTwo, mkTwo_Hit;
+	public bool hitRight, hitLeft = false;
 
 	public static Player_Input_Controller instance;
+
+	private SpriteRenderer sp_MkOne, sp_MkTwo;
 
 	// Use this for initialization
 	void Start () {
 
-		instance = this;
+		instance = this; 
+
+		sp_MkOne = spriteLeft.AddComponent<SpriteRenderer>();
+		sp_MkTwo = spriteRight.AddComponent<SpriteRenderer>();
+
+		if (sp_MkOne.sprite == null && sp_MkTwo.sprite == null) {
+			sp_MkOne.sprite = mkOne;
+			sp_MkTwo.sprite = mkTwo;
+		}
 		
 	}
 	
@@ -21,6 +33,21 @@ public class Player_Input_Controller : MonoBehaviour {
 		// Initial velocity when buttons are not pressed
 		monkeyLeft.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
 		monkeyRight.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+
+
+		if (hitLeft) {
+			sp_MkOne.sprite = mkOne_Hit;
+		} else {
+			sp_MkOne.sprite = mkOne;
+		}
+
+		if (hitRight) {
+			sp_MkTwo.sprite = mkTwo_Hit;
+		} else {
+			sp_MkTwo.sprite = mkTwo;
+		}
+
+
 
 		// Input Keys for Player 1
 		if (Input.GetKey(KeyCode.W)) {
