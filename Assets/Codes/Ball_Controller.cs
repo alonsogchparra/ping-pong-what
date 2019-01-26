@@ -119,10 +119,10 @@ public class Ball_Controller : MonoBehaviour {
 			float speedInXDirection = 0f;
 
 			if (rb.velocity.x > 0f) 
-				speedInXDirection = 8f;
+				speedInXDirection = speed_ball;
 			
 			if (rb.velocity.x < 0f)
-				speedInXDirection = -8f;
+				speedInXDirection = -speed_ball;
 			
 
 			rb.velocity = new Vector3(speedInXDirection, -8f, 0f);
@@ -134,10 +134,10 @@ public class Ball_Controller : MonoBehaviour {
 			float speedinXDirection = 0f;
 
 			if (rb.velocity.x > 0f)
-				speedinXDirection = 8f;
+				speedinXDirection = speed_ball;
 
 			if (rb.velocity.x < 0f)
-				speedinXDirection = -8f;
+				speedinXDirection = -speed_ball;
 					
 			rb.velocity = new Vector3(speedinXDirection, 8f, 0f);
 		}
@@ -160,7 +160,7 @@ public class Ball_Controller : MonoBehaviour {
 			if(transform.position.y - hit.gameObject.transform.position.y > 1)
 				rb.velocity = new Vector3(speed_ball, 8f, 0f);
 
-      speed_ball += (speed_ball * 0.01f) + speed_ball;
+      speed_ball += (speed_ball * 0.01f) + (speed_ball / 2f);
 
       hitLeftMonkey = true;
 
@@ -183,7 +183,7 @@ public class Ball_Controller : MonoBehaviour {
 			if(transform.position.y - hit.gameObject.transform.position.y > 1)
 				rb.velocity = new Vector3(-speed_ball, 8f, 0f);
 
-      speed_ball += (speed_ball * 0.001f) + speed_ball;
+      speed_ball += (speed_ball * 0.001f) + (speed_ball / 2f);
 
       hitLeftMonkey = false;
 
