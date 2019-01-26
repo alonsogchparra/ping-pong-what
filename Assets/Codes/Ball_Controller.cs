@@ -5,13 +5,24 @@ using UnityEngine;
 public class Ball_Controller : MonoBehaviour {
 
 	public AudioSource[] audioClips = null;
+  public GameObject rockGameObject;
+  public Sprite rockImageSprite;
 
 	private Rigidbody rb;
+  private float speed_ball = 8f;
+  private SpriteRenderer spr_rockImg;
+  private bool hitLeftMonkey = false;
 
 	// Use this for initialization
 	void Start () {
 
-		rb = GetComponent<Rigidbody>();
+    spr_rockImg = rockGameObject.AddComponent<SpriteRenderer>();
+
+    if (spr_rockImg.sprite == null) {
+      spr_rockImg.sprite = rockImageSprite;
+    }
+
+    rb = GetComponent<Rigidbody>();
 		StartCoroutine(Pause());
 		
 	}
@@ -26,6 +37,11 @@ public class Ball_Controller : MonoBehaviour {
 
 			Scoreboard_Controller.instance.GivePlayerTwoPoint();
 
+      Player_Input_Controller.instance.hitLeft = false;
+      Player_Input_Controller.instance.hitRight = false;
+
+      speed_ball = 8f;
+
 			StartCoroutine(Pause());
 
 		}
@@ -37,11 +53,23 @@ public class Ball_Controller : MonoBehaviour {
 
 			Scoreboard_Controller.instance.GivePlayerOnePoint();
 
+      Player_Input_Controller.instance.hitLeft = false;
+      Player_Input_Controller.instance.hitRight = false;
+
+      speed_ball = 8f;
+
 			StartCoroutine(Pause());
 
 		}
-		
-	}
+    
+    if (hitLeftMonkey) {
+      RotateLeft();
+    }
+    else {
+      RotateRight();
+    }
+
+  }
 
 
 	IEnumerator Pause () {
@@ -117,7 +145,7 @@ public class Ball_Controller : MonoBehaviour {
 
 		if (hit.gameObject.name == "Left_Monkey") {
 			
-			rb.velocity = new Vector3(13f, 0f, 0f);
+			rb.velocity = new Vector3(speed_ball, 0f, 0f);
 
 			Player_Input_Controller.instance.hitLeft = true;
 			Player_Input_Controller.instance.hitRight = false;
@@ -126,17 +154,21 @@ public class Ball_Controller : MonoBehaviour {
 				audioClips[0].Play();
 
 			if(transform.position.y - hit.gameObject.transform.position.y < -1)
-				rb.velocity = new Vector3(8f, -8f, 0f);
+				rb.velocity = new Vector3(speed_ball, -8f, 0f);
 
 
 			if(transform.position.y - hit.gameObject.transform.position.y > 1)
-				rb.velocity = new Vector3(8f, 8f, 0f);
+				rb.velocity = new Vector3(speed_ball, 8f, 0f);
+
+      speed_ball += (speed_ball * 0.01f) + speed_ball;
+
+      hitLeftMonkey = true;
 
 		}
 
 		if (hit.gameObject.name == "Right_Monkey") {
 
-			rb.velocity = new Vector3(-13f, 0f, 0f);
+			rb.velocity = new Vector3(-speed_ball, 0f, 0f);
 
 			Player_Input_Controller.instance.hitLeft = false;
 			Player_Input_Controller.instance.hitRight = true;
@@ -145,14 +177,27 @@ public class Ball_Controller : MonoBehaviour {
 				audioClips[1].Play();
 
 			if(transform.position.y - hit.gameObject.transform.position.y < -1)
-				rb.velocity = new Vector3(-8f, -8f, 0f);
+				rb.velocity = new Vector3(-speed_ball, -8f, 0f);
 
 
 			if(transform.position.y - hit.gameObject.transform.position.y > 1)
-				rb.velocity = new Vector3(-8f, 8f, 0f);
+				rb.velocity = new Vector3(-speed_ball, 8f, 0f);
 
-		}
+      speed_ball += (speed_ball * 0.001f) + speed_ball;
+
+      hitLeftMonkey = false;
+
+    }
 
 	}
+
+  void RotateLeft () {
+    spr_rockImg.transform.Rotate(Vector3.forward); 
+  }
+
+  void RotateRight () {
+    spr_rockImg.transform.Rotate(Vector3.back);
+
+  }
 
 }
