@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Scoreboard_Controller : MonoBehaviour {
 
@@ -29,7 +30,12 @@ public class Scoreboard_Controller : MonoBehaviour {
 		playerOneScore += 1;
 		playerOneScoreText.text = playerOneScore.ToString();
 
-	}
+    if (playerOneScore > 10) {
+      SceneManager.LoadScene(1);
+    }
+
+
+  }
 
 
 	public void GivePlayerTwoPoint () {
@@ -37,7 +43,11 @@ public class Scoreboard_Controller : MonoBehaviour {
 		playerTwoScore += 1;
 		PlayerTwoScoreText.text = playerTwoScore.ToString();
 
-	}
+    if (playerTwoScore > 10) {
+      SceneManager.LoadScene(2);
+    }
+
+  }
 
 
 }
