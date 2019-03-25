@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_Controller : MonoBehaviour
@@ -14,8 +12,12 @@ public class UI_Controller : MonoBehaviour
     transform.localScale = new Vector3(1f, 1f, 1f);
   }
 
-  public void ButtonChangeInColor () {
-    this.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+  public void ButtonChangeInColorEndGame () {
+    this.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+  }
+
+  public void ButtonChangeInColorRematch() {
+    this.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
   }
 
   public void TextChangeInColor () {
