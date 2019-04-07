@@ -150,7 +150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33800003, y: 0.2138467}
   m_AnchorMax: {x: 0.66200006, y: 0.35584667}
-  m_AnchoredPosition: {x: 0.00005340576, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 7.299988, y: 1.5999985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &93328527
@@ -262,7 +262,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 93328529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 563269327}
+        m_MethodName: TutorialScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &93328529
@@ -655,6 +666,7 @@ GameObject:
   - component: {fileID: 563269323}
   - component: {fileID: 563269322}
   - component: {fileID: 563269326}
+  - component: {fileID: 563269327}
   m_Layer: 5
   m_Name: StartGame Controller
   m_TagString: Untagged
@@ -772,6 +784,50 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &563269327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563269321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257ba5828bdf841158714d579ff6d1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialText: {fileID: 0}
+  tutorialContent: []
+  btnNext: {fileID: 0}
+  btnPrev: {fileID: 0}
+  sprites: []
+  btnCheck: {fileID: 0}
+  imgTutorial: {fileID: 0}
+  imgBtnCancel: {fileID: 0}
+  tutorialContentSpanish:
+  - Bienvenido a Ping Pong What!?
+  - Para controlar a los jugadores.
+  - "El jugador uno se controla presionando el bot\xF3n W (para subir) y S (para bajar)."
+  - "El jugador dos se controlar presionando el bot\xF3n flecha hacia arriba (Para
+    subir) y Flecha Abajo (Para bajar)."
+  - "Pendiente con la roca ira acumulando energ\xEDa por cada golpe que reciba un
+    jugador."
+  - El ganador sera el primero que llegue a 11 en su marcador.
+  - Suerte y que el mejor mono gane...disculpen que el mejor jugador sea el vencedor.
+  tutorialContentEnglish:
+  - Welcome to Ping Pong What!?
+  - To control the players
+  - The first player can be controlled pressing the W button (to move up) and the
+    S button (to move down).
+  - The second player can be controlled pressing the Arrow up button (to move up)
+    and the Arrow down button (to move down).
+  - Be careful with the rock. It will accumulate energy for each hit that a player
+    receives.
+  - The winner will be the first one who gets 11 points.
+  - "Good luck! And the best monkey wins!\u2026 Sorry! The best player be the champion."
+  language_choice: 0
+  btnStart: {fileID: 740639455}
+  btnExit: {fileID: 727717897}
 --- !u!1 &641122159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,7 +1255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.1638467}
   m_AnchorMax: {x: 0.39843506, y: 0.86836183}
-  m_AnchoredPosition: {x: -0.1499939, y: -1.4958954}
+  m_AnchoredPosition: {x: -0.15002441, y: -1.4959106}
   m_SizeDelta: {x: -1.2999878, y: 0.7000122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &915648500
@@ -1400,7 +1456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.605453, y: 0.1638467}
   m_AnchorMax: {x: 1, y: 0.86836183}
-  m_AnchoredPosition: {x: 0.14997864, y: -0.78500366}
+  m_AnchoredPosition: {x: 0.1499939, y: -0.78500366}
   m_SizeDelta: {x: 0.2999878, y: -0.6700134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &997948509
@@ -1614,7 +1670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25440794, y: 0.061000004}
   m_AnchorMax: {x: 0.7442781, y: 0.9392884}
-  m_AnchoredPosition: {x: 0.50001526, y: 0}
+  m_AnchoredPosition: {x: 0.5, y: 0}
   m_SizeDelta: {x: 1.8999939, y: -1.1000061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1630828048
@@ -1890,7 +1946,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1979121584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 563269327}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1979121584
