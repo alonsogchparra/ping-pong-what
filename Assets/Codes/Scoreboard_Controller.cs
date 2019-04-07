@@ -31,7 +31,7 @@ public class Scoreboard_Controller : MonoBehaviour {
 		playerOneScoreText.text = playerOneScore.ToString();
 
     if (playerOneScore > 10) {
-      SceneManager.LoadScene(1);
+      SceneManager.LoadScene(4);
     }
 
 
@@ -44,7 +44,7 @@ public class Scoreboard_Controller : MonoBehaviour {
 		PlayerTwoScoreText.text = playerTwoScore.ToString();
 
     if (playerTwoScore > 10) {
-      SceneManager.LoadScene(2);
+      SceneManager.LoadScene(5);
     }
 
   }
